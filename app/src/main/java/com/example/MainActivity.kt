@@ -78,6 +78,18 @@ fun MainScreen() {
     var previewBitmap by remember { mutableStateOf<Bitmap?>(null) }
     val snackbarHostState = remember { SnackbarHostState() }
 
+    val notificationPermissionLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        // Handle result or just proceed
+    }
+    
+    LaunchedEffect(Unit) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            notificationPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+        }
+    }
+
     val createDocumentLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.CreateDocument(if (captureFormat == "pdf") "application/pdf" else "image/png")
     ) { uri: Uri? ->
@@ -141,6 +153,8 @@ fun MainScreen() {
     }
 
     fun startOverlayFlow() {
+        keyboardController?.hide()
+        focusManager.clearFocus()
         if (!Settings.canDrawOverlays(context)) {
             val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${context.packageName}"))
             overlayPermissionLauncher.launch(intent)
