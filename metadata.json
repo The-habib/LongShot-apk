@@ -1,0 +1,6 @@
+{
+  "name": "Web Screenshot",
+  "description": "Take long screenshots of webpages and export them as images or PDFs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

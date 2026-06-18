@@ -1,11 +1,12 @@
-<div align="center">
+# Web Screenshot App
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+A simple app for taking long continuous screenshots of web pages.
 
-  <h1>Built with AI Studio</h2>
+## How to Download the APK
 
-  <p>The fastest path from prompt to production with Gemini.</p>
-
-  <a href="https://aistudio.google.com/apps">Start building</a>
-
-</div>
+1. Go to the **Actions** tab in this GitHub repository from your browser.
+2. Select the latest successful workflow run (e.g., inside **Android CI**).
+3. Scroll down to the **Artifacts** section at the bottom of the summary page.
+4. Download the `app-debug` zip file.
+5. Extract the `.zip` file on your device to get the `app-debug.apk`.
+6. Install the APK on your Android device (you may need to allow installing unknown apps if prompted).
